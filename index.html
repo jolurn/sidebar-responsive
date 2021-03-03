@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/02-mq-sidebar.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header__logo">
+      <h1>Codi<span>Go</span></h1>
+      <button class="header__menu">
+        &#9776;
+      </button>
+    </div>
+    <button class="button__logout">
+      Logout
+    </button>
+  </header>
+  <main class="main">
+    <aside class="sidebar">
+      <div class="sidebar__profile">
+        <figure class="sidebar__picture">
+          <img src="img/jolu2.gif" alt="">
+        </figure>
+        <p class="sidebar__name">Jorge Luis Ramos Nolasco</p>
+      </div>
+      <button class="sidebar__menu">
+        &#9776;
+      </button>
+      <div class="sidebar__nav">
+        <ul class="sidebar__list">
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link"><i class="fas fa-laptop"></i> <span>Dashboard</span> </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link"><i class="fas fa-laptop"></i> <span>Dashboard</span></a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link"><i class="fas fa-laptop"></i> <span>Dashboard</span></a>
+          </li>
+        </ul>
+      </div>
+    </aside>
+    <section class="main__container">
+      <div class="container__colum">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum cupiditate, mollitia temporibus libero
+          sit aperiam eaque consequatur nam cumque hic consequuntur possimus voluptas obcaecati, maiores impedit odit
+          repellat molestias eos.
+        </p>
+      </div>
+    </section>
+  </main>
+  <script>
+    const btnHeaderMenu = document.querySelector("button.header__menu");
+    const asideSideBar = document.querySelector("aside.sidebar");
+    btnHeaderMenu.onclick = e => {
+      asideSideBar.classList.toggle("open");
+    }
+
+    const btnSideBarMenu = document.querySelector("button.sidebar__menu");
+    btnSideBarMenu.onclick = e => {
+      asideSideBar.classList.toggle("open-mobile");
+
+    }
+
+    const mql = window.matchMedia('(max-width: 480px)');
+
+    function screenTest(e) {
+      e.matches && asideSideBar.classList.remove("open");
+    }
+    mql.addListener(screenTest);
+  </script>
+</body>
+
+</html>
